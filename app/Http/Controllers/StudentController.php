@@ -43,7 +43,7 @@ class StudentController extends Controller
 
         $validated['profile_picture'] = $profilePicturePath;
 
-        $student = Student::($validated);
+        $student = Student::create($validated);
 
         return redirect()
             ->route('students.show', $student)
