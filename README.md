@@ -1,59 +1,182 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Student Registration System
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Introduction
 
-## About Laravel
+The Student Registration System is a Laravel-based web application
+designed to allow students to register their personal and academic
+information digitally.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+The system validates user input, stores student information in a
+MySQL database, and allows students to upload a profile picture.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Objectives
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- Create a professional registration form.
+- Implement server-side validation.
+- Store student information in MySQL.
+- Upload profile pictures.
+- Display validation errors.
+- Display success flash messages.
+- Understand Laravel request processing.
+- Practice Git and GitHub version control.
 
-## Learning Laravel
+## Technologies Used
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+- Laravel
+- PHP
+- MySQL
+- Blade
+- Tailwind CSS
+- Git
+- GitHub
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Features
 
-## Laravel Sponsors
+- Student registration
+- Server-side validation
+- Unique Student ID
+- Unique email
+- Profile picture upload
+- Flash success message
+- Student profile page
+- Student list
+- MySQL database
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## Laravel Request Lifecycle
 
-### Premium Partners
+Browser
+↓
+Route
+↓
+Controller
+↓
+Validation
+↓
+Model
+↓
+Database
+↓
+Response
+↓
+Browser
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+## Validation Rules
 
-## Contributing
+### Student ID
+Required and unique.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### First Name
+Required.
 
-## Code of Conduct
+### Last Name
+Required.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Email
+Required, valid email format, and unique.
 
-## Security Vulnerabilities
+### Mobile Number
+Required and numeric.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Profile Picture
+Required image file with JPG, JPEG, or PNG format
+and maximum size of 2MB.
 
-## License
+## Database Design
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+The students table contains the student's personal,
+academic, contact, and profile picture information.
+
+## Installation
+
+Clone the repository:
+
+git clone YOUR_REPOSITORY_URL
+
+Enter the project:
+
+cd week04-student-registration
+
+Install dependencies:
+
+composer install
+
+Copy environment file:
+
+copy .env.example .env
+
+Generate application key:
+
+php artisan key:generate
+
+Configure MySQL in .env.
+
+Run migrations:
+
+php artisan migrate
+
+Create storage link:
+
+php artisan storage:link
+
+Run Laravel:
+
+php artisan serve
+
+## Screenshots
+
+Screenshots are available inside the screenshots folder.
+
+## Problems Encountered
+
+### 1. Validation Errors
+
+Problem:
+Some invalid data was being rejected by Laravel.
+
+Solution:
+The validation rules were checked and corrected inside
+StudentController.
+
+### 2. Image Upload
+
+Problem:
+The uploaded image was not displaying.
+
+Solution:
+The Laravel storage link was created using:
+
+php artisan storage:link
+
+### 3. Database Migration
+
+Problem:
+The students table was not initially available.
+
+Solution:
+The database configuration in .env was checked and
+php artisan migrate was executed again.
+
+## Reflection
+
+The project helped demonstrate the importance of validating
+user input before storing information in a database. Server-side
+validation provides an additional layer of protection because
+validation is performed by the application instead of relying
+only on the browser. The activity also demonstrated how file
+uploads must be handled carefully in web applications. Laravel
+Storage provides a structured way to store uploaded files while
+the database only stores the file path. The project also showed
+how registration systems can be used in real-world enterprise
+applications to collect and manage information.
+
+## References
+
+Laravel Documentation
+
+PHP Documentation
+
+MySQL Documentation
+
+Tailwind CSS Documentation
+
+MDN Web Docs
