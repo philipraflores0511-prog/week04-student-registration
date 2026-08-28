@@ -6,7 +6,7 @@ use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class StudentController extends Controller
+class StudentController extends 
 {
     public function index()
     {
