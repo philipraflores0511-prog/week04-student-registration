@@ -22,7 +22,7 @@ class StudentController extends Controller
 
     public function store(Request $request)
     {
-        $validated = $request->([
+        $validated = $request->validate([
             'student_id' => 'required|string|max:50|unique:students,student_id',
             'first_name' => 'required|string|max:100',
             'middle_name' => 'nullable|string|max:100',
@@ -43,7 +43,7 @@ class StudentController extends Controller
 
         $validated['profile_picture'] = $profilePicturePath;
 
-        $student = Student::create($validated);
+        $student = Student::($validated);
 
         return redirect()
             ->route('students.show', $student)
